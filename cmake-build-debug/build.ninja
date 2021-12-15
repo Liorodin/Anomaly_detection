@@ -96,6 +96,12 @@ build CMakeFiles/Anomaly_detection.dir/SimpleAnomalyDetector.cpp.o: CXX_COMPILER
   OBJECT_DIR = CMakeFiles/Anomaly_detection.dir
   OBJECT_FILE_DIR = CMakeFiles/Anomaly_detection.dir
 
+build CMakeFiles/Anomaly_detection.dir/HybridAnomalyDetector.cpp.o: CXX_COMPILER__Anomaly_detection_Debug /home/odin/CLionProjects/Anomaly_detection/HybridAnomalyDetector.cpp || cmake_object_order_depends_target_Anomaly_detection
+  DEP_FILE = CMakeFiles/Anomaly_detection.dir/HybridAnomalyDetector.cpp.o.d
+  FLAGS = -g -std=gnu++11
+  OBJECT_DIR = CMakeFiles/Anomaly_detection.dir
+  OBJECT_FILE_DIR = CMakeFiles/Anomaly_detection.dir
+
 build CMakeFiles/Anomaly_detection.dir/MainTrain.cpp.o: CXX_COMPILER__Anomaly_detection_Debug /home/odin/CLionProjects/Anomaly_detection/MainTrain.cpp || cmake_object_order_depends_target_Anomaly_detection
   DEP_FILE = CMakeFiles/Anomaly_detection.dir/MainTrain.cpp.o.d
   FLAGS = -g -std=gnu++11
@@ -110,7 +116,7 @@ build CMakeFiles/Anomaly_detection.dir/MainTrain.cpp.o: CXX_COMPILER__Anomaly_de
 #############################################
 # Link the executable Anomaly_detection
 
-build Anomaly_detection: CXX_EXECUTABLE_LINKER__Anomaly_detection_Debug CMakeFiles/Anomaly_detection.dir/anomaly_detection_util.cpp.o CMakeFiles/Anomaly_detection.dir/minCircle.cpp.o CMakeFiles/Anomaly_detection.dir/timeseries.cpp.o CMakeFiles/Anomaly_detection.dir/SimpleAnomalyDetector.cpp.o CMakeFiles/Anomaly_detection.dir/MainTrain.cpp.o
+build Anomaly_detection: CXX_EXECUTABLE_LINKER__Anomaly_detection_Debug CMakeFiles/Anomaly_detection.dir/anomaly_detection_util.cpp.o CMakeFiles/Anomaly_detection.dir/minCircle.cpp.o CMakeFiles/Anomaly_detection.dir/timeseries.cpp.o CMakeFiles/Anomaly_detection.dir/SimpleAnomalyDetector.cpp.o CMakeFiles/Anomaly_detection.dir/HybridAnomalyDetector.cpp.o CMakeFiles/Anomaly_detection.dir/MainTrain.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Anomaly_detection.dir
   POST_BUILD = :

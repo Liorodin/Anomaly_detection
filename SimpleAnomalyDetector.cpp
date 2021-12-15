@@ -6,19 +6,35 @@
 #include "anomaly_detection_util.h"
 
 #define MIN_CORRLATION 0.9
-#define SCALE 1.15
+#define SCALE 1.1
 
-correlatedFeatures create_correlated_features(string feature1, string feature2, float corrlation, Line lin_reg,
-                                              vector<Point *> point_vec, int arr_size) {
+correlatedFeatures
+SimpleAnomalyDetector::create_correlated_features(string feature1, string feature2, float corrlation, Line lin_reg,
+                                                  vector<Point *> point_vec) {
     correlatedFeatures new_cf;
     new_cf.feature1 = std::move(feature1);
     new_cf.feature2 = std::move(feature2);
     new_cf.corrlation = corrlation;
     new_cf.lin_reg = lin_reg;
-    new_cf.arr_size = arr_size;
     new_cf.point_vec = std::move(point_vec);
     new_cf.threshold = 0;
     return new_cf;
+}
+
+void SimpleAnomalyDetector::check_correlated(const TimeSeries &ts, vector<Point *> point_vec, float correlation, int i,
+                                             int j) {
+    if (correlation > MIN_CORRLATION) {
+        int arr_size = ts.get_features()[i].get_vec().size();
+        correlatedFeatures new_cf = create_correlated_features(ts.get_features()[i].get_name(),
+                                                               ts.get_features()[j].get_name(), correlation,
+                                                               linear_reg(&point_vec[0], arr_size),
+                                                               point_vec);
+        cf.push_back(new_cf);
+    }
+}
+
+float SimpleAnomalyDetector::get_dev(Point point, int index) {
+    return dev(point, getNormalModel()[index].lin_reg);
 }
 
 void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
@@ -38,23 +54,17 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
             int arr_size = ts.get_features()[i].get_vec().size();
             vector<Point *> point_vec(arr_size);
             for (int k = 0; k < arr_size; k++) {
-                point_vec[k] =
-                        new Point(ts.get_features()[i].get_vec()[k], ts.get_features()[c].get_vec()[k]);
+                point_vec[k] = new Point(ts.get_features()[i].get_vec()[k], ts.get_features()[c].get_vec()[k]);
             }
-            if (m > MIN_CORRLATION) {
-                correlatedFeatures new_cf = create_correlated_features(ts.get_features()[i].get_name(),
-                                                                       ts.get_features()[c].get_name(), m,
-                                                                       linear_reg(&point_vec[0], arr_size),
-                                                                       point_vec,
-                                                                       arr_size);
-                cf.push_back(new_cf);
-            }
+            check_correlated(ts, point_vec, m, i, c);
         }
     }
-    for (int i = 0; i < getNormalModel().size(); ++i) {
+    unsigned long cf_size = getNormalModel().size();
+    for (int i = 0; i < cf_size; ++i) {
         float deviation = 0;
-        for (int j = 0; j < getNormalModel()[i].arr_size; ++j) {
-            float temp = dev(*getNormalModel()[i].point_vec[j], getNormalModel()[i].lin_reg);
+        unsigned long size = getNormalModel()[i].point_vec.size();
+        for (int j = 0; j < size; ++j) {
+            float temp = get_dev(*getNormalModel()[i].point_vec[j], i);
             if (temp > deviation) {
                 deviation = temp;
             }
@@ -66,7 +76,7 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
 vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
     vector<AnomalyReport> report;
     string feature1, feature2;
-    int size = getNormalModel().size();
+    unsigned long size = getNormalModel().size();
     for (int i = 0; i < size; i++) {
         feature1 = getNormalModel()[i].feature1;
         feature2 = getNormalModel()[i].feature2;
@@ -75,11 +85,10 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
         for (int j = 0; j < vector1.size(); j++) {
             float x = vector1[j], y = vector2[j];
             Point p(x, y);
-            Line linear_reg = getNormalModel()[i].lin_reg;
-            float deviation = dev(p, linear_reg);
+            float deviation = get_dev(p, i);
             //if the deviation is bigger than the threshold, it will be reported as an anomaly
             if (deviation > getNormalModel()[i].threshold) {
-                string description = feature1 + "-" + feature2;
+                string description = feature1.append("-").append(feature2);
                 AnomalyReport ap(description, j + 1);
                 report.push_back(ap);
             }

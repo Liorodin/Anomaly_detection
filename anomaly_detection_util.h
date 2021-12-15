@@ -9,6 +9,9 @@
 
 using std::vector;
 
+//returns the average of the array
+float avg(float *x, float size);
+
 // returns the variance of X and Y
 float var(float *x, int size);
 
