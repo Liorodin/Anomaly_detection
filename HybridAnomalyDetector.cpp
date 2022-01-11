@@ -3,7 +3,6 @@
 
 #include "HybridAnomalyDetector.h"
 
-#define MIN_SIMPLE_CORRLATION 0.9
 #define MIN_HYBRID_CORRLATION 0.5
 
 HybridAnomalyDetector::HybridAnomalyDetector() = default;
@@ -24,7 +23,7 @@ correlatedFeatures create_cf_circle(string feature1, string feature2, float corr
 
 void HybridAnomalyDetector::check_correlated(const TimeSeries &ts, vector<Point *> point_vec, float correlation, int i,
                                              int j) {
-    if (correlation > MIN_SIMPLE_CORRLATION) {
+    if (correlation > this->min_corrlation) {
         int arr_size = ts.get_features()[i].get_vec().size();
         correlatedFeatures new_cf = SimpleAnomalyDetector::create_correlated_features(ts.get_features()[i].get_name(),
                                                                                       ts.get_features()[j].get_name(),

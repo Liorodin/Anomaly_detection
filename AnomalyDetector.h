@@ -1,22 +1,22 @@
 //Leonardo Rodin 207377151
 //Shirin Bazis 211492970
 
-#ifndef ANOMALY_DETECTION_EX2_ANOMALYDETECTOR_H
-#define ANOMALY_DETECTION_EX2_ANOMALYDETECTOR_H
+#ifndef ANOMALY_DETECTION_ANOMALYDETECTOR_H
+#define ANOMALY_DETECTION_ANOMALYDETECTOR_H
+
 
 #include "timeseries.h"
-#include <string>
 #include <math.h>
+#include <string>
 
-using std::string;
-using std::vector;
+using namespace std;
 
 class AnomalyReport {
 public:
     const string description;
     const long timeStep;
 
-    AnomalyReport(const string description, const long timeStep) : description(description), timeStep(timeStep) {}
+    AnomalyReport(string description, long timeStep) : description(description), timeStep(timeStep) {}
 };
 
 class TimeSeriesAnomalyDetector {
@@ -28,4 +28,4 @@ public:
     virtual ~TimeSeriesAnomalyDetector() {}
 };
 
-#endif //ANOMALY_DETECTION_EX2_ANOMALYDETECTOR_H
+#endif //ANOMALY_DETECTION_ANOMALYDETECTOR_H

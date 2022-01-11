@@ -5,7 +5,6 @@
 #include "SimpleAnomalyDetector.h"
 #include "anomaly_detection_util.h"
 
-#define MIN_CORRLATION 0.9
 #define SCALE 1.1
 
 correlatedFeatures
@@ -23,7 +22,7 @@ SimpleAnomalyDetector::create_correlated_features(string feature1, string featur
 
 void SimpleAnomalyDetector::check_correlated(const TimeSeries &ts, vector<Point *> point_vec, float correlation, int i,
                                              int j) {
-    if (correlation > MIN_CORRLATION) {
+    if (correlation > this->min_corrlation) {
         int arr_size = ts.get_features()[i].get_vec().size();
         correlatedFeatures new_cf = create_correlated_features(ts.get_features()[i].get_name(),
                                                                ts.get_features()[j].get_name(), correlation,
@@ -88,7 +87,7 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
             float deviation = get_dev(p, i);
             //if the deviation is bigger than the threshold, it will be reported as an anomaly
             if (deviation > getNormalModel()[i].threshold) {
-                string description = feature1.append("-").append(feature2);
+                string description = feature1 + "-" + feature2;
                 AnomalyReport ap(description, j + 1);
                 report.push_back(ap);
             }

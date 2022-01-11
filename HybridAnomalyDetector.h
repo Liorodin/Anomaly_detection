@@ -5,11 +5,15 @@
 #define HYBRIDANOMALYDETECTOR_H_
 
 #include "SimpleAnomalyDetector.h"
-#include "minCircle.h"
 
 class HybridAnomalyDetector : public SimpleAnomalyDetector {
+
 public:
     HybridAnomalyDetector();
+
+    HybridAnomalyDetector(float corrlation) {
+        this->min_corrlation = corrlation;
+    }
 
     virtual ~HybridAnomalyDetector();
 

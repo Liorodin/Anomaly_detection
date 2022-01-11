@@ -5,8 +5,8 @@
 #define ANOMALY_DETECTION_EX2_SIMPLEANOMALYDETECTOR_H
 
 #include "anomaly_detection_util.h"
-#include "minCircle.h"
 #include "AnomalyDetector.h"
+#include "minCircle.h"
 #include <algorithm>
 #include <string.h>
 
@@ -24,8 +24,14 @@ struct correlatedFeatures {
 class SimpleAnomalyDetector : public TimeSeriesAnomalyDetector {
 protected:
     vector<correlatedFeatures> cf;
+    float min_corrlation;
+
 public:
-    SimpleAnomalyDetector() = default;
+    SimpleAnomalyDetector() {
+        this->min_corrlation = 0.9;
+    };
+
+    SimpleAnomalyDetector(float threshold) { this->min_corrlation = threshold; }
 
     virtual ~SimpleAnomalyDetector();
 

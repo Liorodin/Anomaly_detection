@@ -3,6 +3,6 @@ project(Anomaly_detection)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Anomaly_detection anomaly_detection_util.cpp anomaly_detection_util.h AnomalyDetector.h minCircle.cpp
-        minCircle.h timeseries.cpp timeseries.h SimpleAnomalyDetector.cpp SimpleAnomalyDetector.h
-        HybridAnomalyDetector.cpp HybridAnomalyDetector.h MainTrain.cpp)
+set(Headers anomaly_detection_util.h AnomalyDetector.h SimpleAnomalyDetector.h timeseries.h commands.h CLI.h)
+add_executable(Anomaly_detection anomaly_detection_util.cpp  minCircle.cpp timeseries.cpp SimpleAnomalyDetector.cpp
+        HybridAnomalyDetector.cpp HybridAnomalyDetector.h CLI.cpp  MainTrain.cpp)

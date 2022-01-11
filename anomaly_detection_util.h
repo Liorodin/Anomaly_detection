@@ -1,8 +1,8 @@
 //Leonardo Rodin 207377151
 //Shirin Bazis 211492970
 
-#ifndef ANOMALY_DETECTION_EX2_ANOMALY_DETECTION_UTIL_H
-#define ANOMALY_DETECTION_EX2_ANOMALY_DETECTION_UTIL_H
+#ifndef ANOMALY_DETECTION_UTIL_H
+#define ANOMALY_DETECTION_UTIL_H
 
 #include <vector>
 #include <cmath>
@@ -67,4 +67,4 @@ float dev(Point p, Point **points, int size);
 // returns the deviation between point p and the line
 float dev(Point p, Line l);
 
-#endif //ANOMALY_DETECTION_EX2_ANOMALY_DETECTION_UTIL_H
+#endif //ANOMALY_DETECTION_UTIL_H
