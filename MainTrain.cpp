@@ -75,13 +75,11 @@ void check(string outputFile, string expectedOutputFile) {
 
 //small test
 int main() {
-    STDtest std("/home/odin/CLionProjects/Anomaly_detection/input.txt",
-                "/home/odin/CLionProjects/Anomaly_detection/output.txt");
+    STDtest std("input.txt","output.txt");
     CLI cli(&std);
     cli.start();
     std.close();
-    check("/home/odin/CLionProjects/Anomaly_detection/output.txt",
-          "/home/odin/CLionProjects/Anomaly_detection/expectedOutput.txt");
+    check("output.txt","expectedOutput.txt");
     cout << "done" << endl;
     return 0;
 }

@@ -1,4 +1,4 @@
-/home/odin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/odin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/ninja/linux/ninja -G Ninja /home/odin/CLionProjects/Anomaly_detection
+/home/odin/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.75/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/odin/CLionProjects/Anomaly_detection
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/odin/CLionProjects/Anomaly_detection/cmake-build-debug
