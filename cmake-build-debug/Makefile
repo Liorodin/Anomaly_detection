@@ -201,6 +201,30 @@ MainTrain.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Anomaly_detection.dir/build.make CMakeFiles/Anomaly_detection.dir/MainTrain.cpp.s
 .PHONY : MainTrain.cpp.s
 
+Server.o: Server.cpp.o
+.PHONY : Server.o
+
+# target to build an object file
+Server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Anomaly_detection.dir/build.make CMakeFiles/Anomaly_detection.dir/Server.cpp.o
+.PHONY : Server.cpp.o
+
+Server.i: Server.cpp.i
+.PHONY : Server.i
+
+# target to preprocess a source file
+Server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Anomaly_detection.dir/build.make CMakeFiles/Anomaly_detection.dir/Server.cpp.i
+.PHONY : Server.cpp.i
+
+Server.s: Server.cpp.s
+.PHONY : Server.s
+
+# target to generate assembly for a file
+Server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Anomaly_detection.dir/build.make CMakeFiles/Anomaly_detection.dir/Server.cpp.s
+.PHONY : Server.cpp.s
+
 SimpleAnomalyDetector.o: SimpleAnomalyDetector.cpp.o
 .PHONY : SimpleAnomalyDetector.o
 
@@ -315,6 +339,9 @@ help:
 	@echo "... MainTrain.o"
 	@echo "... MainTrain.i"
 	@echo "... MainTrain.s"
+	@echo "... Server.o"
+	@echo "... Server.i"
+	@echo "... Server.s"
 	@echo "... SimpleAnomalyDetector.o"
 	@echo "... SimpleAnomalyDetector.i"
 	@echo "... SimpleAnomalyDetector.s"

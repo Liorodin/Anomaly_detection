@@ -76,7 +76,7 @@ public:
     void get_file(const string &name) {
         ofstream file(name);
         string line = dio->read();
-        while (line != "done") {
+        while (line.substr(0, 4) != "done") {
             file << line + "\n";
             line = dio->read();
         }

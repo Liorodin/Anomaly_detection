@@ -97,6 +97,12 @@
 		<Unit filename="/home/odin/CLionProjects/Anomaly_detection/MainTrain.cpp">
 			<Option target="Anomaly_detection"/>
 		</Unit>
+		<Unit filename="/home/odin/CLionProjects/Anomaly_detection/Server.cpp">
+			<Option target="Anomaly_detection"/>
+		</Unit>
+		<Unit filename="/home/odin/CLionProjects/Anomaly_detection/Server.h">
+			<Option target="Anomaly_detection"/>
+		</Unit>
 		<Unit filename="/home/odin/CLionProjects/Anomaly_detection/SimpleAnomalyDetector.cpp">
 			<Option target="Anomaly_detection"/>
 		</Unit>

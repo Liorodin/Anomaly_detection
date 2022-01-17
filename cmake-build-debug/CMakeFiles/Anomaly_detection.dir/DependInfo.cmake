@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/odin/CLionProjects/Anomaly_detection/CLI.cpp" "CMakeFiles/Anomaly_detection.dir/CLI.cpp.o" "gcc" "CMakeFiles/Anomaly_detection.dir/CLI.cpp.o.d"
   "/home/odin/CLionProjects/Anomaly_detection/HybridAnomalyDetector.cpp" "CMakeFiles/Anomaly_detection.dir/HybridAnomalyDetector.cpp.o" "gcc" "CMakeFiles/Anomaly_detection.dir/HybridAnomalyDetector.cpp.o.d"
   "/home/odin/CLionProjects/Anomaly_detection/MainTrain.cpp" "CMakeFiles/Anomaly_detection.dir/MainTrain.cpp.o" "gcc" "CMakeFiles/Anomaly_detection.dir/MainTrain.cpp.o.d"
+  "/home/odin/CLionProjects/Anomaly_detection/Server.cpp" "CMakeFiles/Anomaly_detection.dir/Server.cpp.o" "gcc" "CMakeFiles/Anomaly_detection.dir/Server.cpp.o.d"
   "/home/odin/CLionProjects/Anomaly_detection/SimpleAnomalyDetector.cpp" "CMakeFiles/Anomaly_detection.dir/SimpleAnomalyDetector.cpp.o" "gcc" "CMakeFiles/Anomaly_detection.dir/SimpleAnomalyDetector.cpp.o.d"
   "/home/odin/CLionProjects/Anomaly_detection/anomaly_detection_util.cpp" "CMakeFiles/Anomaly_detection.dir/anomaly_detection_util.cpp.o" "gcc" "CMakeFiles/Anomaly_detection.dir/anomaly_detection_util.cpp.o.d"
   "/home/odin/CLionProjects/Anomaly_detection/minCircle.cpp" "CMakeFiles/Anomaly_detection.dir/minCircle.cpp.o" "gcc" "CMakeFiles/Anomaly_detection.dir/minCircle.cpp.o.d"
